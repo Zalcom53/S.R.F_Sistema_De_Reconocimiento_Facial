@@ -9,7 +9,7 @@ import numpy as np
 
 dataPath = '/Users/antonioquihuis/Documents/GitHub/S.R.F_Sistema_De_Reconocimiento_Facial/Data' #Ruta de la carpeta Data
 peopleList = os.listdir(dataPath)
-print('Lista de personas: ', peopleList)
+print('Personas guardadas: ', peopleList)
 
 labels = []
 facesData = []
@@ -17,10 +17,10 @@ label = 0
 
 for nameDir in peopleList:
 	personPath = dataPath + '/' + nameDir
-	print('Leyendo las imágenes')
+	print('Escaneando imagenes...')
 
 	for fileName in os.listdir(personPath):
-		print('Rostros: ', nameDir + '/' + fileName)
+		print('Caras: ', nameDir + '/' + fileName)
 		labels.append(label)
 		facesData.append(cv2.imread(personPath+'/'+fileName,0))
 		#image = cv2.imread(personPath+'/'+fileName,0)
@@ -28,21 +28,21 @@ for nameDir in peopleList:
 		#cv2.waitKey(10)
 	label = label + 1
 
-#print('labels= ',labels)
-#print('Número de etiquetas 0: ',np.count_nonzero(np.array(labels)==0))
-#print('Número de etiquetas 1: ',np.count_nonzero(np.array(labels)==1))
+#print('labels= ',labels) # pruebas ignorar linea de codigo
+#print('Número de etiquetas 0: ',np.count_nonzero(np.array(labels)==0)) # pruebas ignorar linea de codigo
+#print('Número de etiquetas 1: ',np.count_nonzero(np.array(labels)==1)) # pruebas ignorar linea de codigo
 
-# Métodos para entrenar el reconocedor
-#face_recognizer = cv2.face.EigenFaceRecognizer_create()
-#face_recognizer = cv2.face.FisherFaceRecognizer_create()
+# Algoritmos para entrenar el reconocimiento facial
+#face_recognizer = cv2.face.EigenFaceRecognizer_create() # pruebas ignorar linea de codigo
+#face_recognizer = cv2.face.FisherFaceRecognizer_create()# pruebas ignorar linea de codigo
 face_recognizer = cv2.face.LBPHFaceRecognizer_create()
 
-# Entrenando el reconocedor de rostros
-print("Entrenando...")
+# Entrenando reconocimiento facial
+print("Entrenando reconocimiento facial, espere...")
 face_recognizer.train(facesData, np.array(labels))
 
 # Almacenando el modelo obtenido
-#face_recognizer.write('modeloEigenFace.xml')
-#face_recognizer.write('modeloFisherFace.xml')
-face_recognizer.write('modeloLBPHFace.xml')
-print("Modelo almacenado...")
+#face_recognizer.write('AlgoritmoEigenFaces.xml')# pruebas ignorar linea de codigo
+#face_recognizer.write('AlgoritmoFisherFaces.xml')# pruebas ignorar linea de codigo
+face_recognizer.write('AlgoritmoLBPH.xml')
+print("Algoritmo guardado con exito!")
