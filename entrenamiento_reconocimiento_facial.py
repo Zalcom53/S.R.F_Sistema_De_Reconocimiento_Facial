@@ -1,8 +1,13 @@
+# 	Nombre: entrenamiento_reconocimiento_facial.py
+#	Autor: Daniel Antonio Quihuis Quihuis Hernandez
+#	Fecha: Abril del 2022
+#	Descripcion: Este archivo contiene el codigo para entrenar los 3 algoritmos
+
 import cv2
 import os
 import numpy as np
 
-dataPath = '/Users/antonioquihuis/Documents/GitHub/S.R.F.-Sistema-de-reconocimento-facial-/Data' #Cambia a la ruta donde hayas almacenado Data
+dataPath = '/Users/antonioquihuis/Documents/GitHub/S.R.F_Sistema_De_Reconocimiento_Facial/Data' #Ruta de la carpeta Data
 peopleList = os.listdir(dataPath)
 print('Lista de personas: ', peopleList)
 

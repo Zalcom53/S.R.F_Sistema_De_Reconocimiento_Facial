@@ -1,7 +1,12 @@
+# 	Nombre: main_reconocimiento_facial.py
+#	Autor: Daniel Antonio Quihuis Quihuis Hernandez
+#	Fecha: Abril del 2022
+#	Descripcion: Este archivo contiene la implementacion de (EigenFaces, FisherFaces, LBPH) asi como el reonocimiento facial
+
 import cv2
 import os
 
-dataPath = '/Users/antonioquihuis/Documents/GitHub/S.R.F.-Sistema-de-reconocimento-facial-/Data' #Cambia a la ruta donde hayas almacenado Data
+dataPath = '/Users/antonioquihuis/Documents/GitHub/S.R.F_Sistema_De_Reconocimiento_Facial/Data' #Ruta de la carpeta Data
 imagePaths = os.listdir(dataPath)
 print('imagePaths=',imagePaths)
 
