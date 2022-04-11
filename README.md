@@ -4,3 +4,4 @@
  Versión de python: 3.10
  Version de OpenCV: 4.5.5.64
  
+![logo unison](https://user-images.githubusercontent.com/16214225/162680315-8265f469-8560-413f-85b0-be449c4b3a87.png)
