@@ -8,7 +8,7 @@ import os
 import imutils
 
 personName = 'Daniel' #etiqueta o nombre de la persona
-dataPath = '/Users/antonioquihuis/Documents/GitHub/S.R.F_Sistema_De_Reconocimiento_Facial/Data' #Ruta de la carpeta Data
+dataPath = 'C:\Users\KLKB\Documents\GitHub\S.R.F_Sistema_De_Reconocimiento_Facial\Data' #Ruta de la "base de datos"
 personPath = dataPath + '/' + personName
 
 if not os.path.exists(personPath): #Se revisa que el directorio este creado en el sistema operativo, si no lo esta lo va a creear

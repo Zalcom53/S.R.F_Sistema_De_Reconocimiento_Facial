@@ -6,7 +6,7 @@
 import cv2
 import os
 
-dataPath = '/Users/antonioquihuis/Documents/GitHub/S.R.F_Sistema_De_Reconocimiento_Facial/Data' #Ruta de la carpeta Data
+dataPath = 'C:\Users\KLKB\Documents\GitHub\S.R.F_Sistema_De_Reconocimiento_Facial\Data' #Ruta de la "base de datos"
 imagePaths = os.listdir(dataPath)
 print('imagePaths=',imagePaths)
 
