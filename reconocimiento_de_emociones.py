@@ -9,10 +9,10 @@ import numpy as np
 
 def emotionImage(emotion):
 	# Imagenes de referencia
-	if emotion == 'Felicidad': image = cv2.imread('Emojis/felicidad.jpeg')
-	if emotion == 'Enojo': image = cv2.imread('Emojis/enojo.jpeg')
-	if emotion == 'Sorpresa': image = cv2.imread('Emojis/sorpresa.jpeg')
-	if emotion == 'Tristeza': image = cv2.imread('Emojis/tristeza.jpeg')
+	if emotion == 'Felicidad': image = cv2.imread(#ruta de imagen de referencia )
+	if emotion == 'Enojo': image = cv2.imread(#ruta de imagen de referencia)
+	if emotion == 'Sorpresa': image = cv2.imread(#ruta de imagen de referencia)
+	if emotion == 'Tristeza': image = cv2.imread(#ruta de imagen de referencia)
 	return image
 
 # Modelos para entrenamiento y lectura
@@ -25,7 +25,6 @@ if method == 'FisherFaces': emotion_recognizer = cv2.face.FisherFaceRecognizer_c
 if method == 'LBPH': emotion_recognizer = cv2.face.LBPHFaceRecognizer_create()
 
 emotion_recognizer.read('modelo'+method+'.xml')
-# --------------------------------------------------------------------------------
 
 dataPath = 'C:\Users\KLKB\Documents\GitHub\S.R.F_Sistema_De_Reconocimiento_Facial\Data' #Ruta de "Data"
 imagePaths = os.listdir(dataPath)

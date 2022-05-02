@@ -13,19 +13,19 @@ def obtenerModelo(method,facesData,labels):
 	if method == 'FisherFaces': emotion_recognizer = cv2.face.FisherFaceRecognizer_create()
 	if method == 'LBPH': emotion_recognizer = cv2.face.LBPHFaceRecognizer_create()
 
-	# Entrenando el reconocedor de rostros
-	print("Entrenando ( "+method+" )...")
+	# Entrenamiento para el reconocimento de caras
+	print("Entrenando espere un momento ( "+method+" )...")
 	inicio = time.time()
 	emotion_recognizer.train(facesData, np.array(labels))
 	tiempoEntrenamiento = time.time()-inicio
-	print("Tiempo de entrenamiento ( "+method+" ): ", tiempoEntrenamiento)
+	print("Tiempo restante aproximado para el entrenamiento ( "+method+" ): ", tiempoEntrenamiento)
 
-	# Almacenando el modelo obtenido
+	# Almacenando modelo 
 	emotion_recognizer.write("modelo"+method+".xml")
 
 dataPath = 'C:\Users\KLKB\Documents\GitHub\S.R.F_Sistema_De_Reconocimiento_Facial\Data' #Ruta de "Data"
 emotionsList = os.listdir(dataPath)
-print('Lista de personas: ', emotionsList)
+print('Personas guardadas: ', emotionsList)
 
 labels = []
 facesData = []
@@ -35,12 +35,12 @@ for nameDir in emotionsList:
 	emotionsPath = dataPath + '/' + nameDir
 
 	for fileName in os.listdir(emotionsPath):
-		#print('Rostros: ', nameDir + '/' + fileName)
+		#print('Caras: ', nameDir + '/' + fileName)  # pruebas ignorar linea de codigo
 		labels.append(label)
 		facesData.append(cv2.imread(emotionsPath+'/'+fileName,0))
-		#image = cv2.imread(emotionsPath+'/'+fileName,0)
-		#cv2.imshow('image',image)
-		#cv2.waitKey(10)
+		#image = cv2.imread(emotionsPath+'/'+fileName,0)  # pruebas ignorar linea de codigo
+		#cv2.imshow('image',image)  # pruebas ignorar linea de codigo
+		#cv2.waitKey(10)  # pruebas ignorar linea de codigo
 	label = label + 1
 
 obtenerModelo('EigenFaces',facesData,labels)

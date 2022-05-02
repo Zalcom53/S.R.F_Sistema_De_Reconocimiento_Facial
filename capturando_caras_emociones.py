@@ -1,7 +1,7 @@
 # 	Nombre: capturando_caras_emociones.py
 #	Autor: Daniel Antonio Quihuis Quihuis Hernandez
 #	Fecha: Abril del 2022
-#	Descripcion:
+#	Descripcion: Este archivo contiene el codigo que captura los rostros para el reconocimiento de emociones 
 
 import cv2
 import os
@@ -10,13 +10,13 @@ import imutils
 #emotionName = 'Enojo'
 #emotionName = 'Felicidad'
 #emotionName = 'Sorpresa'
-emotionName = 'Tristeza'
+#emotionName = 'Tristeza'
 
 dataPath = 'C:\Users\KLKB\Documents\GitHub\S.R.F_Sistema_De_Reconocimiento_Facial\Data' #Ruta de "Data"
 emotionsPath = dataPath + '/' + emotionName
 
 if not os.path.exists(emotionsPath):
-	print('Carpeta creada: ',emotionsPath)
+	print('Directorio creado con exito!: ',emotionsPath)
 	os.makedirs(emotionsPath)
 
 cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
@@ -38,7 +38,7 @@ while True:
 		cv2.rectangle(frame, (x,y),(x+w,y+h),(0,255,0),2)
 		rostro = auxFrame[y:y+h,x:x+w]
 		rostro = cv2.resize(rostro,(150,150),interpolation=cv2.INTER_CUBIC)
-		cv2.imwrite(emotionsPath + '/rotro_{}.jpg'.format(count),rostro)
+		cv2.imwrite(emotionsPath + '/cara_{}.jpg'.format(count),rostro)
 		count = count + 1
 	cv2.imshow('frame',frame)
 
