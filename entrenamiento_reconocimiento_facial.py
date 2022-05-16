@@ -7,7 +7,7 @@ import cv2
 import os
 import numpy as np
 
-dataPath = 'C:\Users\KLKB\Documents\GitHub\S.R.F_Sistema_De_Reconocimiento_Facial\Data' #Ruta de la "la base de datos"
+dataPath = 'C:\\Users\\KLKB\\Documents\\GitHub\\S.R.F_Sistema_De_Reconocimiento_Facial\\Data' #Ruta de la "base de datos"
 peopleList = os.listdir(dataPath)
 print('Personas guardadas: ', peopleList)
 
@@ -42,7 +42,7 @@ print("Entrenando reconocimiento facial, espere...")
 face_recognizer.train(facesData, np.array(labels))
 
 # Almacenando el modelo obtenido
-#face_recognizer.write('AlgoritmoEigenFaces.xml')# pruebas ignorar linea de codigo
+face_recognizer.write('AlgoritmoEigenFaces.xml')# pruebas ignorar linea de codigo
 #face_recognizer.write('AlgoritmoFisherFaces.xml')# pruebas ignorar linea de codigo
-face_recognizer.write('AlgoritmoLBPH.xml')
+#face_recognizer.write('AlgoritmoLBPH.xml')
 print("Algoritmo guardado con exito!")

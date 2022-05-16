@@ -7,8 +7,8 @@ import cv2
 import os
 import imutils
 
-personName = 'Daniel' #etiqueta o nombre de la persona
-dataPath = 'C:\Users\KLKB\Documents\GitHub\S.R.F_Sistema_De_Reconocimiento_Facial\Data' #Ruta de la "base de datos"
+personName = 'Antonio' #etiqueta o nombre de la persona
+dataPath = 'C:\\Users\\KLKB\\Documents\\GitHub\\S.R.F_Sistema_De_Reconocimiento_Facial\\Data' #Ruta de la "base de datos"
 personPath = dataPath + '/' + personName
 
 if not os.path.exists(personPath): #Se revisa que el directorio este creado en el sistema operativo, si no lo esta lo va a creear
@@ -16,7 +16,7 @@ if not os.path.exists(personPath): #Se revisa que el directorio este creado en e
 	os.makedirs(personPath)
 
 cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
-#cap = cv2.VideoCapture('videoPruebaSRF.mp4') # pruebas ignorar linea de codigo
+#cap = cv2.VideoCapture('Video.mp4') # pruebas ignorar linea de codigo
 
 faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades+'haarcascade_frontalface_default.xml')
 count = 0

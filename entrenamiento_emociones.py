@@ -8,7 +8,7 @@ import os
 import numpy as np
 import time
 
-def obtenerModelo(method,facesData,labels):
+def generarModelo(method,facesData,labels):
 	if method == 'EigenFaces': emotion_recognizer = cv2.face.EigenFaceRecognizer_create()
 	if method == 'FisherFaces': emotion_recognizer = cv2.face.FisherFaceRecognizer_create()
 	if method == 'LBPH': emotion_recognizer = cv2.face.LBPHFaceRecognizer_create()
@@ -18,14 +18,14 @@ def obtenerModelo(method,facesData,labels):
 	inicio = time.time()
 	emotion_recognizer.train(facesData, np.array(labels))
 	tiempoEntrenamiento = time.time()-inicio
-	print("Tiempo restante aproximado para el entrenamiento ( "+method+" ): ", tiempoEntrenamiento)
+	print("Tiempo de entrenamiento ( "+method+" ): ", tiempoEntrenamiento)
 
-	# Almacenando modelo 
-	emotion_recognizer.write("modelo"+method+".xml")
+	# Almacenando modelo
+	emotion_recognizer.write("Algoritmo"+method+".xml")
 
-dataPath = 'C:\Users\KLKB\Documents\GitHub\S.R.F_Sistema_De_Reconocimiento_Facial\Data' #Ruta de "Data"
+dataPath = 'C:\\Users\\KLKB\Documents\\GitHub\\S.R.F_Sistema_De_Reconocimiento_Facial\DataEmociones' #Ruta de "Data"
 emotionsList = os.listdir(dataPath)
-print('Personas guardadas: ', emotionsList)
+print('Emociones guardadas: ', emotionsList)
 
 labels = []
 facesData = []
@@ -43,6 +43,6 @@ for nameDir in emotionsList:
 		#cv2.waitKey(10)  # pruebas ignorar linea de codigo
 	label = label + 1
 
-obtenerModelo('EigenFaces',facesData,labels)
-obtenerModelo('FisherFaces',facesData,labels)
-obtenerModelo('LBPH',facesData,labels)
+generarModelo('EigenFaces',facesData,labels)
+generarModelo('FisherFaces',facesData,labels)
+generarModelo('LBPH',facesData,labels)

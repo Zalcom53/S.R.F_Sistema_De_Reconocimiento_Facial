@@ -6,7 +6,7 @@
 import cv2
 import os
 
-dataPath = 'C:\Users\KLKB\Documents\GitHub\S.R.F_Sistema_De_Reconocimiento_Facial\Data' #Ruta de la "base de datos"
+dataPath = 'C:\\Users\\KLKB\\Documents\\GitHub\\S.R.F_Sistema_De_Reconocimiento_Facial\\Data' #Ruta de la "base de datos"
 imagePaths = os.listdir(dataPath)
 print('imagePaths=',imagePaths)
 
@@ -15,17 +15,17 @@ print('imagePaths=',imagePaths)
 face_recognizer = cv2.face.LBPHFaceRecognizer_create()
 
 # Leyendo el modelo
-#face_recognizer.read('AlgoritmoEigenFaces.xml') # pruebas ignorar linea de codigo
+face_recognizer.read('AlgoritmoEigenFaces.xml') # pruebas ignorar linea de codigo
 #face_recognizer.read('AlgoritmoFisherFaces.xml') # pruebas ignorar linea de codigo
-face_recognizer.read('AlgoritmoLBPH.xml')
+#face_recognizer.read('AlgoritmoLBPH.xml')
 
-#cap = cv2.VideoCapture(0,cv2.CAP_DSHOW) # pruebas ignorar linea de codigo
-#cap = cv2.VideoCapture('videoPruebaSRF.mp4') # pruebas ignorar linea de codigo
+cap = cv2.VideoCapture(0,cv2.CAP_DSHOW) # pruebas ignorar linea de codigo
+#cap = cv2.VideoCapture('Video.mp4') # pruebas ignorar linea de codigo
 
 faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades+'haarcascade_frontalface_default.xml')
 
 while True:
-	ret,frame = cap.read()
+	ret, frame = cap.read()
 	if ret == False: break
 	gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 	auxFrame = gray.copy()
@@ -63,7 +63,7 @@ while True:
 			cv2.putText(frame,'Desconocido',(x,y-20),2,0.8,(0,0,255),1,cv2.LINE_AA)
 			cv2.rectangle(frame, (x,y),(x+w,y+h),(0,0,255),2)
 
-	cv2.imshow('frame',frame)
+	cv2.imshow('Demo - S.R.F.',frame)
 	k = cv2.waitKey(1)
 	if k == 27:
 		break

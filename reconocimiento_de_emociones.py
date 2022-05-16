@@ -9,24 +9,26 @@ import numpy as np
 
 def emotionImage(emotion):
 	# Imagenes de referencia
-	if emotion == 'Felicidad': image = cv2.imread(#ruta de imagen de referencia )
-	if emotion == 'Enojo': image = cv2.imread(#ruta de imagen de referencia)
-	if emotion == 'Sorpresa': image = cv2.imread(#ruta de imagen de referencia)
-	if emotion == 'Tristeza': image = cv2.imread(#ruta de imagen de referencia)
+	if emotion == 'Feliz': image = cv2.imread('Emociones/felicidad.jpeg')
+	if emotion == 'Enfadado': image = cv2.imread('Emociones/enojo.jpeg')
+	if emotion == 'Sorprendido': image = cv2.imread('Emociones/sorpresa.jpeg')
+	if emotion == 'Triste': image = cv2.imread('Emociones/tristeza.jpeg')#ruta de imagen de referencia
+#	if emotion == 'Neutral': image = cv2.imread('Emociones/Neutral.png') #ruta de imagen de referencia
+#	if emotion == 'Asustado': image = cv2.imread('Emociones/Asustado.png') #ruta de imagen de referencia
 	return image
 
 # Modelos para entrenamiento y lectura
 method = 'EigenFaces'
-method = 'FisherFaces'
-method = 'LBPH'
+#method = 'FisherFaces'
+#method = 'LBPH'
 
 if method == 'EigenFaces': emotion_recognizer = cv2.face.EigenFaceRecognizer_create()
 if method == 'FisherFaces': emotion_recognizer = cv2.face.FisherFaceRecognizer_create()
 if method == 'LBPH': emotion_recognizer = cv2.face.LBPHFaceRecognizer_create()
 
-emotion_recognizer.read('modelo'+method+'.xml')
+emotion_recognizer.read('Algoritmo'+method+'.xml')
 
-dataPath = 'C:\Users\KLKB\Documents\GitHub\S.R.F_Sistema_De_Reconocimiento_Facial\Data' #Ruta de "Data"
+dataPath = 'C:\\Users\\KLKB\Documents\\GitHub\\S.R.F_Sistema_De_Reconocimiento_Facial\DataEmociones' #Ruta de "Data"
 imagePaths = os.listdir(dataPath)
 print('imagePaths=',imagePaths)
 
@@ -46,9 +48,9 @@ while True:
 	faces = faceClassif.detectMultiScale(gray,1.3,5)
 
 	for (x,y,w,h) in faces:
-		rostro = auxFrame[y:y+h,x:x+w]
-		rostro = cv2.resize(rostro,(150,150),interpolation= cv2.INTER_CUBIC)
-		result = emotion_recognizer.predict(rostro)
+		cara = auxFrame[y:y+h,x:x+w]
+		cara = cv2.resize(cara,(150,150),interpolation= cv2.INTER_CUBIC)
+		result = emotion_recognizer.predict(cara)
 
 		cv2.putText(frame,'{}'.format(result),(x,y-5),1,1.3,(255,255,0),1,cv2.LINE_AA)
 
@@ -60,7 +62,7 @@ while True:
 				image = emotionImage(imagePaths[result[0]])
 				nFrame = cv2.hconcat([frame,image])
 			else:
-				cv2.putText(frame,'No identificado',(x,y-20),2,0.8,(0,0,255),1,cv2.LINE_AA)
+				cv2.putText(frame,'emociones desconocidas',(x,y-20),2,0.8,(0,0,255),1,cv2.LINE_AA)
 				cv2.rectangle(frame, (x,y),(x+w,y+h),(0,0,255),2)
 				nFrame = cv2.hconcat([frame,np.zeros((480,300,3),dtype=np.uint8)])
 
@@ -88,7 +90,7 @@ while True:
 				cv2.rectangle(frame, (x,y),(x+w,y+h),(0,0,255),2)
 				nFrame = cv2.hconcat([frame,np.zeros((480,300,3),dtype=np.uint8)])
 
-	cv2.imshow('nFrame',nFrame)
+	cv2.imshow('Reconocimiento de emociones',nFrame)
 	k = cv2.waitKey(1)
 	if k == 27:
 		break
