@@ -23,7 +23,7 @@ def generarModelo(method,facesData,labels):
 	# Almacenando modelo
 	emotion_recognizer.write("Algoritmo"+method+".xml")
 
-dataPath = 'C:\\Users\\KLKB\Documents\\GitHub\\S.R.F_Sistema_De_Reconocimiento_Facial\DataEmociones' #Ruta de "Data"
+dataPath = '' #Ruta de "Data"
 emotionsList = os.listdir(dataPath)
 print('Emociones guardadas: ', emotionsList)
 
