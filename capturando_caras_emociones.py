@@ -14,7 +14,7 @@ import imutils
 emotionName = 'Neutral'
 #emotionName = 'Asustado'
 
-dataPath = 'C:\\Users\\KLKB\Documents\\GitHub\\S.R.F_Sistema_De_Reconocimiento_Facial\DataEmociones' #Ruta de "Data"
+dataPath = '' #Ruta de "Data"
 emotionsPath = dataPath + '/' + emotionName
 
 if not os.path.exists(emotionsPath):
