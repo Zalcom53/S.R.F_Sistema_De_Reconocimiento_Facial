@@ -7,7 +7,7 @@ import cv2
 import os
 import numpy as np
 
-dataPath = 'C:\\Users\\KLKB\\Documents\\GitHub\\S.R.F_Sistema_De_Reconocimiento_Facial\\Data' #Ruta de la "base de datos"
+dataPath = '' #Ruta de la "base de datos"
 peopleList = os.listdir(dataPath)
 print('Personas guardadas: ', peopleList)
 
