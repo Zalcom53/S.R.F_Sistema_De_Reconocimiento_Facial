@@ -7,8 +7,8 @@ import cv2
 import os
 import imutils
 
-personName = 'Antonio' #etiqueta o nombre de la persona
-dataPath = 'C:\\Users\\KLKB\\Documents\\GitHub\\S.R.F_Sistema_De_Reconocimiento_Facial\\Data' #Ruta de la "base de datos"
+personName = '' #etiqueta o nombre de la persona
+dataPath = '' #Ruta de la "base de datos"
 personPath = dataPath + '/' + personName
 
 if not os.path.exists(personPath): #Se revisa que el directorio este creado en el sistema operativo, si no lo esta lo va a creear
