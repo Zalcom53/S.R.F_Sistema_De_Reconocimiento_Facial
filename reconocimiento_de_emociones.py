@@ -9,12 +9,12 @@ import numpy as np
 
 def emotionImage(emotion):
 	# Imagenes de referencia
-	if emotion == 'Feliz': image = cv2.imread('Emociones/felicidad.jpeg')
-	if emotion == 'Enfadado': image = cv2.imread('Emociones/enojo.jpeg')
-	if emotion == 'Sorprendido': image = cv2.imread('Emociones/sorpresa.jpeg')
-	if emotion == 'Triste': image = cv2.imread('Emociones/tristeza.jpeg')#ruta de imagen de referencia
-#	if emotion == 'Neutral': image = cv2.imread('Emociones/Neutral.png') #ruta de imagen de referencia
-#	if emotion == 'Asustado': image = cv2.imread('Emociones/Asustado.png') #ruta de imagen de referencia
+	if emotion == '': image = cv2.imread('')
+	if emotion == '': image = cv2.imread('')
+	if emotion == '': image = cv2.imread('')
+	if emotion == '': image = cv2.imread('')#ruta de imagen de referencia
+#	if emotion == '': image = cv2.imread('') #ruta de imagen de referencia
+#	if emotion == '': image = cv2.imread('') #ruta de imagen de referencia
 	return image
 
 # Modelos para entrenamiento y lectura
@@ -28,7 +28,7 @@ if method == 'LBPH': emotion_recognizer = cv2.face.LBPHFaceRecognizer_create()
 
 emotion_recognizer.read('Algoritmo'+method+'.xml')
 
-dataPath = 'C:\\Users\\KLKB\Documents\\GitHub\\S.R.F_Sistema_De_Reconocimiento_Facial\DataEmociones' #Ruta de "Data"
+dataPath = '' #Ruta de "Data"
 imagePaths = os.listdir(dataPath)
 print('imagePaths=',imagePaths)
 
